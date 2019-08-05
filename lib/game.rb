@@ -21,8 +21,12 @@ class Game
   [2,4,6]
   ]
 
-  def current_player
-
+  def current_player()
+    if @board.turn_count % 2 == 0
+      @player_1
+    else
+      @player_2
+    end
   end
 
 
@@ -45,7 +49,7 @@ class Game
   if won?
     puts "Congratulations #{winner}!"
   elsif draw?
-    puts "Cat's Game!"
+    puts "Cat's Game!
   end
 end
 
