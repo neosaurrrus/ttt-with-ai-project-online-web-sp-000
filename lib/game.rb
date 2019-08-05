@@ -1,6 +1,15 @@
 class Game
+  attr_accessor :board, :player_1, :player_2
+  def initialize(p1 = Players::Human.new("X"), p2 = Players::Human.new("O"), board = Board.new)
+    @player_1 = p1
+    @player_2 = p2
+    @board = board
+  end
 
-  def initialize(player1, pl)
+  def board
+    @board
+  end
+
   WIN_COMBINATIONS = [
   [0,1,2],
   [3,4,5],
@@ -12,15 +21,8 @@ class Game
   [2,4,6]
   ]
 
-  def board(current_board)
-    Board.current_board
-  end
+  def current_player
 
-  def player_1
-      Players.player_1
-  end
-  def player_2
-      Players.player_2
   end
 
 
@@ -29,7 +31,7 @@ class Game
   end
 
   def over?
-    won? || draw? || full? ? true : false
+    @board.won? || @board.draw? || @board.full? ? true : false
   end
 
   def winner
