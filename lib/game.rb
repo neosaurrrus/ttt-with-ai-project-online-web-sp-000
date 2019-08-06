@@ -50,21 +50,48 @@ class Game
     end
   end # of current player
 
+  def turn
 
+
+    fix_index = @board.input_to_index(@input)
+    if @board.valid_move?(fix_index)
+      move(fix_index, current_player)
+      @board.display_board
+    else
+    puts fix_index
+    end
+    if @board.valid_move?(index)
+      move(fix_index, current_player)
+      @board.display_board
+    else
+      puts "Hmm, that was not valid. Try again"
+      turn
+    end
+  end # of turn
+
+  def move
+
+  end
 
   def draw?
     @board.full? && !won? ? true : false
   end #of draw
+
+  # def over?
+  #   won? || draw? || @board.full? ? true : false
+  #   @board.full? && !@board.won? ? true : false
+  # end #of draw
 
   def over?
     won? || draw? || @board.full? ? true : false
   end # fo over
 
   def winner
-    won? ? @board[won?[0]] : nil
+    won? ? @board.cells[won?[0]] : nil
   end #of winner
 
   def play
+
     until over?
       turn
     end
