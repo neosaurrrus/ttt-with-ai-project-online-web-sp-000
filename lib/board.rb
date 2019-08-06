@@ -34,9 +34,9 @@ attr_accessor :cells
   def valid_move?(input)
     index = self.input_to_index(input)
     if @cells[index] == " " && index <= 8 && index >= 0
-       return true
+       true
      else
-       return false
+       false
     end
   end
 

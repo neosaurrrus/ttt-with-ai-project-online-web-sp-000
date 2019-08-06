@@ -51,27 +51,24 @@ class Game
   end # of current player
 
   def turn
-
-
-    fix_index = @board.input_to_index(@input)
-    if @board.valid_move?(fix_index)
-      move(fix_index, current_player)
-      @board.display_board
+    input = current_player.move(@board)
+    if @board.valid_move?(input)
+      puts "valid move"
+      @board.update(input, current_player)
+      @board.display
     else
-    puts fix_index
-    end
-    if @board.valid_move?(index)
-      move(fix_index, current_player)
-      @board.display_board
-    else
-      puts "Hmm, that was not valid. Try again"
       turn
     end
+  @board.turn_count
+    # if @board.valid_move?(index)
+    #   Players::human.move(index, current_player)
+    #   @board.display_board
+    # else
+    #   puts "Hmm, that was not valid. Try again"
+    # end
   end # of turn
 
-  def move
 
-  end
 
   def draw?
     @board.full? && !won? ? true : false
@@ -93,7 +90,8 @@ class Game
   def play
 
     until over?
-      turn
+      puts "Please make your move"
+      self.turn
     end
     if won?
       puts "Congratulations #{winner}!"
