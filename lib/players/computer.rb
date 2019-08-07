@@ -29,24 +29,24 @@ module Players
             return 1
           else
             return 3
-          end  
+          end
           # check for near win conditions (self)
         elsif board.turn_count > 1
           my_win_conditions
           if !my_win_conditions
             thier_win_conditions
           end
-        
+
        end # of big logic
-      
-      
-      
+
+
+
 
       # check for near win conditions (opponent)
-      
+
       # evaluate win condition to persue
-      
-      
+
+
 
   end #of class
 end # of module
