@@ -20,31 +20,38 @@ module Players
       chosen_move = rand(valid_moves.length)
       #if its the first move
         if board.turn_count == 0
-          return 5
+          chosen_move = 5
       #if its the 2nd move (opponent starting)
         elsif board.turn_count == 1
-          if board.valid_move?(4)
-            return 5
+          if board.valid_move?(5)
+            chosen_move = 5
           elsif board.valid_move?(1)
-            return 1
+            chosen_move =  1
           else
-            return 3
+            chosen_move = 3
           end
-          # check for near win conditions (self)
+        
         elsif board.turn_count > 1
+            # check for near win conditions (self)
           my_win_conditions
           if !my_win_conditions
+            # check for near win conditions (opponent)
             thier_win_conditions
+          if !thier_win_conditions
+              # evaluate win condition to persue
+            pick_my_win_condition
           end
-
        end # of big logic
+    end
+
+    def my_win_conditions
+
+    end  
 
 
 
-
-      # check for near win conditions (opponent)
-
-      # evaluate win condition to persue
+    
+    
 
 
 
