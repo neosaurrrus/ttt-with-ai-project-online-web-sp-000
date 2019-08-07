@@ -61,7 +61,7 @@ class Game
       turn
     end
   @board.turn_count
-  
+
   end # of turn
 
 
