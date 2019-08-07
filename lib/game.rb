@@ -51,6 +51,7 @@ class Game
   end # of current player
 
   def turn
+<<<<<<< HEAD
     input = current_player.move(@board)
     if @board.valid_move?(input)
       puts "valid move"
@@ -60,6 +61,15 @@ class Game
       turn
     end
   @board.turn_count
+=======
+    # index = @board.input_to_index(@input)
+    # if @board.valid_move?(index)
+    #   Players::human.move(index, current_player)
+    #   @board.display_board
+    # else
+    # puts index
+    # end
+>>>>>>> bb9da85394f0dc0fc3f65a7cdc8cf916bed22797
     # if @board.valid_move?(index)
     #   Players::human.move(index, current_player)
     #   @board.display_board
@@ -88,9 +98,11 @@ class Game
   end #of winner
 
   def play
-
     until over?
+<<<<<<< HEAD
       puts "Please make your move"
+=======
+>>>>>>> bb9da85394f0dc0fc3f65a7cdc8cf916bed22797
       self.turn
     end
     if won?
