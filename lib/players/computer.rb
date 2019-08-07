@@ -30,7 +30,7 @@ module Players
           else
             chosen_move = 3
           end
-        
+
         elsif board.turn_count > 1
             # check for near win conditions (self)
           my_win_conditions
@@ -46,12 +46,12 @@ module Players
 
     def my_win_conditions
 
-    end  
+    end
 
 
 
-    
-    
+
+
 
 
 
